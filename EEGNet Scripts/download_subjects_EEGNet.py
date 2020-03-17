@@ -2,6 +2,7 @@ import data_utils_EEGNet as utils
 import numpy as np
 import os
 import sys
+from sklearn.model_selection import train_test_split
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # 																	                                  #
@@ -22,6 +23,7 @@ import sys
 #																  	                                  #
 #  pip install NumPy									                       		      #
 #  pip install boto3										                       	      #
+#  pip install sklearn                                                #
 #																                                      #  
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -30,11 +32,12 @@ list_subjects = ['105923', '164636', '133019',
                  '113922','116726','140117',
                  '175237', '177746', '185442',
                  '191033', '191437', '192641',
+                 '707749','725751','735148',
                  '204521','212318', '162935']
            
 #Amazon S3 credentials
-personal_access_key_id = 'XXXXXXXXXXXXXXXX'
-secret_access_key = 'XXXXXXXXXXXXXXXX'
+personal_access_key_id = 'AKIAXO65CT57HBP3Y6N5'
+secret_access_key = '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'
 
 #Creating a directory for the downloaded files
 try:
