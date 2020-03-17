@@ -8,7 +8,7 @@ import h5py
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # 																	                                  #
-# The script downloads the subjects and saves both the subject in     #
+# The script downloads the subjects and saves the subject in          #
 # both the original format and h5 format (preprocessing them as well) #
 # ready to use with EEGNet                                            #
 #                                                                     #
