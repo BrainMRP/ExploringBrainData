@@ -3,6 +3,7 @@ import numpy as np
 import os
 import sys
 from sklearn.model_selection import train_test_split
+from keras import utils as np_utils
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # 																	                                  #
@@ -24,6 +25,7 @@ from sklearn.model_selection import train_test_split
 #  pip install NumPy									                       		      #
 #  pip install boto3										                       	      #
 #  pip install sklearn                                                #
+#  pip install keras                                                  #
 #																                                      #  
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -39,6 +41,8 @@ list_subjects = ['105923', '164636', '133019',
 personal_access_key_id = 'AKIAXO65CT57HBP3Y6N5'
 secret_access_key = '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'
 
+first_time = True
+
 #Creating a directory for the downloaded files
 try:
 	os.mkdir('subjects')
@@ -51,7 +55,9 @@ except:
 
 #Downloading subjects
 for subject in list_subjects:
-  utils.download_subject(subject,personal_access_key_id,secret_access_key)
+  if first_time: first_time=False
+  else:
+    utils.download_subject(subject,personal_access_key_id,secret_access_key)
 
   #Reading data, extracting epochs and creating data-set
   print("\n\n\n>>Creating a dataset with the subject: ",subject,"\n\n\n")
