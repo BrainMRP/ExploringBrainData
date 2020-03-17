@@ -40,8 +40,8 @@ list_subjects = ['105923', '164636', '133019',
                  '204521','212318', '162935']
            
 #Amazon S3 credentials
-personal_access_key_id = 'AKIAXO65CT57HBP3Y6N5'
-secret_access_key = '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'
+personal_access_key_id = 'XXXXXXXXXXXXXX'
+secret_access_key = 'XXXXXXXXXXXX'
 
 
 #Creating a directory for the downloaded files
