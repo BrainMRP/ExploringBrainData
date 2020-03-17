@@ -4,6 +4,7 @@ import os
 import sys
 from sklearn.model_selection import train_test_split
 from keras import utils as np_utils
+import h5py
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # 																	                                  #
@@ -26,6 +27,7 @@ from keras import utils as np_utils
 #  pip install boto3										                       	      #
 #  pip install sklearn                                                #
 #  pip install keras                                                  #
+#  pip install h5py                                                   #
 #																                                      #  
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -41,7 +43,6 @@ list_subjects = ['105923', '164636', '133019',
 personal_access_key_id = 'AKIAXO65CT57HBP3Y6N5'
 secret_access_key = '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'
 
-first_time = True
 
 #Creating a directory for the downloaded files
 try:
@@ -49,19 +50,18 @@ try:
 except:
 	pass
 try:
-	os.mkdir('datasets_h5_EEGNet')
+	os.mkdir('datasets')
 except:
 	pass
 
 #Downloading subjects
 for subject in list_subjects:
-  if first_time: first_time=False
-  else:
-    utils.download_subject(subject,personal_access_key_id,secret_access_key)
+  utils.download_subject(subject,personal_access_key_id,secret_access_key)
 
   #Reading data, extracting epochs and creating data-set
   print("\n\n\n>>Creating a dataset with the subject: ",subject,"\n\n\n")
   try:
+    #Creating epochs and preprocessing 
   	X_train, Y_train, pick_chans = utils.create_dataset([subject])
   except:
   	print("\n\nERROR! \nProbably you need to add your Amazon S3 credentials...\n\n")
