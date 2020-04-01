@@ -1,4 +1,8 @@
 import tensorflow as tf
+
+if tf.__version__=='1.15.0':
+  tf.enable_eager_execution()
+
 import os.path as op
 import os
 import data_utils_EEGNet as utils
